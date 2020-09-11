@@ -1,0 +1,59 @@
+# LAB: Google Cloud Fundamentals: Getting Started with cloud Markrtplace.
+
+## Objectives:
+
+In this lab, you learn how to launch a solution using Cloud Marketplace.
+
+##Steps:
+
+1. Use Cloud Marketplace to deploy a LAMP stack
+
+- In the GCP Console, on the Navigation menu (Navigation menu), click Marketplace.
+
+- In the search bar, type LAMP
+
+- In the search results, click LAMP Certified by Bitnami.
+
+- If you choose another LAMP stack, such as the Google Click to Deploy offering, the lab instructions will not work as expected.
+
+- On the LAMP page, click Launch.
+
+- If this is your first time using Compute Engine, the Compute Engine API must be initialized before you can continue.
+
+- For Zone, select the deployment zone that Qwiklabs assigned to you.
+
+- Leave the remaining settings as their defaults.
+
+- If you are prompted to accept the GCP Marketplace Terms of Service, do so.
+
+- Click Deploy.
+
+- If a Welcome to Deployment Manager message appears, click Close to dismiss it.
+
+- Result: The status of the deployment appears in the console window: lampstack-1 is being deployed. When the deployment of the infrastructure is complete, the status changes to lampstack-1 has been deployed. After the software is installed, a summary of the details for the instance, including the site address, is displayed.
+
+2. Verify your deployment
+
+- When the deployment is complete, click the Site address link in the right pane.
+
+- Close the congratulations browser tab.
+
+- On the GCP Console, under Get started with LAMP Certified by Bitnami, click SSH.
+
+- In the just-created SSH window, to change the current working directory to /opt/bitnami.
+
+    cd /opt/bitnami
+
+- Copy the phpinfo.php script from the installation directory to a publicly accessible location under the web server document root.
+
+    sudo sh -c 'echo "<?php phpinfo(); ?>" > apache2/htdocs/phpinfo.php'
+
+- Close the SSH window.
+
+    exit
+
+- In a new browser tab, type the following URL, and replace SITE_ADDRESS with the URL in the Site address field in the right pane of the lampstack page.
+
+    http://SITE_ADDRESS/phpinfo.php
+
+- Result: A summary of the PHP configuration of your server is displayed.
